@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="/static/styles.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body id="index_body" >
+    <div id="jordan_box">
+        <div id="blue_box"></div>
+
+
+        <div id="quote_text">
+            <h1 id="jordan_text">“It’s Better To Take The Shot And Miss, Then To Let The Timer Run Out And Wonder What If”</h1>
+            <h1 id="line">-</h1>
+            <h2 id="quote_by">Michael Jordan</h2>
+
+        </div>
+
+        <img src="/static/scroll.png" id="scroll">
+
+    </div>
+
+    <div class="nav">
+        <img src="/static/baseline.png">
+        <div class="links">
+            <a>HOME</a>
+            <a href="/content">CONTENT</a>
+            <a href="/timeline">INFO</a>
+            <a href="/choose_upload">UPLOAD</a>
+            <a href="/reviews">REVIEWS</a>
+
+        </div>
+
+        <div class="account_options">
+            {% if current_user.is_authenticated %}
+            <a href="/logout">Log Out</a>
+            {% else %}
+            <a href="/login">Login</a>
+            <a href="/register">Sign up</a>
+            {% endif %}
+        </div>
+
+    </div>
+
+    <div id="gray">
+        <div class="container-sm" style="height:40vw">
+            <div class="welcome_text">
+                <h1>WELCOME</h1>
+                <h1 id="to">TO</h1>
+                <h1 class="orange">BASELINE.COM</h1>
+            </div>
+
+            <div style="background-color:black; height:0.05vw; margin-left:32vw; margin-right:32vw; margin-top:3vw;"></div>
+
+            <h1 style="font-family:League Spartan; font-weight:100; font-size:1.5vw; color:#6b6e6e; margin-right:27vw; margin-left:27vw; text-align:center; margin-top:3vw;">
+                This website was created to help basketball players on their journey to success, by offering tips and useful information such as drills, workouts and correct nutrition.
+            </h1>
+
+            <h1 style="font-family:League Spartan; font-weight:100; font-size:1.5vw; color:#6b6e6e; margin-right:27vw; margin-left:27vw; text-align:center; margin-top:5vw;">
+                Key features of the website
+            </h1>
+
+            <div class="row" style="margin-top:4vw;">
+                <div class="col card no_left">
+                    <img src="/static/eye.png" class="card_img">
+                    <h1 class="card_title">VIEW CONTENT</h1>
+                    <h2 class="card_body">easily view and interact with other people’s content through comments and reviews</h2>
+                </div>
+
+                <div class="col card">
+                    <img src="/static/filter.png" class="card_img">
+                    <h1 class="card_title">FILTER EASILY</h1>
+                    <h2 class="card_body">navigate the website easily by filtering to get rid of any unnecessary information</h2>
+                </div>
+
+                <div class="col card">
+                    <img src="/static/upload.png" class="card_img">
+                    <h1 class="card_title">UPLOAD SEAMLESSLY</h1>
+                    <h2 class="card_body">upload your own videos/tips/content smoothly and without any problems</h2>
+                </div>
+
+                <div class="col card">
+                    <img src="/static/read.png" class="card_img">
+                    <h1 class="card_title">READ INFO</h1>
+                    <h2 class="card_body">read about basketball and receive tips from professional players and coaches.</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="blob_box">
+        <img src="/static/blue_blob.png">
+        <img src="/static/orange_blob.png">
+    </div>
+
+    <h1 class="about_me">ABOUT ME</h1>
+    <div style="background-color:black; height:0.05vw; width:20vw; margin-left:32vw; margin-right:32vw; margin-top:3vw; margin-bottom:3vw;"></div>
+
+
+    <div class="container-sm" style="margin-bottom:10vw;">
+
+        <div style="display:flex; flex-direction:row; align-items:center; justify-content:space-between; margin-bottom:5vw; margin-top: 3vw;">
+            <div>
+                <h1 class="about_me_title">The beginning</h1>
+                <p class="about_me_text" style="width:50vw;">Ever since I was little, I loved watching basketball; I
+                    admired
+                    the superstars as they gracefully but yet effectively managed to surpass their opponents and score,
+                    not
+                    to mention that I was fascinated by their level of discipline and dedication to the sport. That’s
+                    what
+                    made me wish to be like them.</p>
+                <p class="about_me_text" style="width:50vw; margin-bottom:0;">It eventually got to the point that my parents offered me
+                    to
+                    start playing at the age of 7, and well, that’s what I’ve been doing ever since. Unfortunately,
+                    along
+                    the way, due to the countless injuries, such as broken fingers, arm, etc, I started to get out of
+                    shape
+                    and was desperate for help. I needed someone to work out with me so I could be able to experience
+                    all of
+                    it once again.</p>
+            </div>
+
+            <div class="center" style="margin-top:7vw; margin-right:5vw;">
+                <div class="image_wrapper" style="background-color: #6e231e;">
+                    <img src="/static/jordan_white_background.png" class="color_images">
+                </div>
+
+                <h1 class="player_names">Michael Jordan</h1>
+            </div>
+        </div>
+
+        <div class="dotted_line"></div>
+
+        <h1 class="about_me_title">Motive And Product</h1>
+        <p class="about_me_text">Sadly, physically nobody could consistently practice with me for a few months, so I had to do it all by myself. However, the majority of the content/advice that I found online were poor quality and didn’t work in reality. There wasn’t a place where all of the valuable information was put together. During the time when I wasn’t playing, due to the injuries mentioned above, I developed an interest in programming and learned some basics in python - coding became my new hobby.</p>
+        <p class="about_me_text">However I haven’t created any major projects independently, which I always wanted to. Now, I’m able to combine both passions to build a website that helps basketball players find good drills, workouts, and tips all in one place, since I don't want others to experience the same..</p>
+
+    </div>
+
+    <div class="footer">
+        <div>
+            <h1 class="bold" style="margin-bottom:1vw;">Contact me</h1>
+            <div style="display:flex; align-items:center; margin-bottom:0.5vw;">
+                <img src="/static/gmail.png" style="height:1.82vw">
+                <h1 style="margin-left:1vw;">Dachi.nioradze@gmail.com</h1>
+            </div>
+
+            <div  style="display:flex; align-items:center;">
+                <img src="/static/instagram.png" style="width:2.25vw;">
+                <h1 style="margin-left:1vw;">@Dachi.Nioradze</h1>
+            </div>
+        </div>
+
+        <div>
+            <h1>© 2024 BASELINE</h1>
+        </div>
+
+        <div>
+            <h1 class="bold"  style="margin-bottom:1vw;">Review Website</h1>
+            <a href="/upload_review" style="text-decoration:none">
+                <h1>Click Here To Review</h1>
+            </a>
+
+        </div>
+
+
+    </div>
+
+
+</body>
+</html>

@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container-sm">
+    <div class="welcome_text">
+        <h1>Filter</h1>
+        <h1 class="orange">Page</h1>
+    </div>
+
+    <div style="background-color:black; height:0.05vw; margin-left:32vw; margin-right:32vw; margin-top:3vw;"></div>
+    <h1 style="font-family:League Spartan; font-weight:100; font-size:1.5vw; color:#6b6e6e; margin-right:27vw; margin-left:27vw; text-align:center; margin-top:3vw;">
+        Feel free to filter content based on your needs
+    </h1>
+    <div style="display:flex; flex-direction:row; align-items:center; justify-content:center; margin-top:3vw;">
+        <a href="/view_content" style="text-decoration:none;">
+            <h1 style="font-family:League Spartan; font-weight:500; font-size:1.5vw; color:#6b6e6e; text-align:center;">
+                Click here to view everything</h1>
+        </a>
+
+        <h1 style="font-family:League Spartan; font-weight:300; font-size:1.5vw; color:#6b6e6e; text-align:center; margin-left:1vw; margin-right:1vw;">OR</h1>
+
+        <a href="/filter/Other" style="text-decoration:none; ">
+            <h1 style="font-family:League Spartan; font-weight:500; font-size:1.5vw; color:#6b6e6e; text-align:center;">
+                Click here to view "Other"</h1>
+        </a>
+    </div>
+
+
+    <div class="row" style="margin-top:17vw;">
+        <a id="a_link" class="col" href="/filter/Skills & Performance" style="text-decoration:none;">
+            <div class="card no_left" style="padding-bottom:4vw; padding-top:4vw; background-image:url('/static/skills_performance.png'); background-size: cover; background-position: center; background-repeat: no-repeat; border:0;z-index:0;">
+                <div class="white_box"></div>
+                <h1 class="card_title" style="color:#5e6161; z-index:2;">Skills & Performance</h1>
+                <h2 class="card_body" style="width:20vw; color:#5e6161; z-index:2;">Dribbling, Passing, Finishing, Court Vision, Basketball IQ, Footwork, Vertical Jump, Endurance, Strength & Conditioning, Agility & Quickness</h2>
+            </div>
+        </a>
+
+        <a id="a_link" class="col" href="/filter/Shooting" style="text-decoration:none;">
+            <div class="card no_left" style="padding-bottom:5.8vw; padding-top:4vw; background-image:url('/static/shooting.png'); background-size: cover; background-position: center; background-repeat: no-repeat; border:0;z-index:0;">
+                <div class="white_box"></div>
+                <h1 class="card_title" style="color:#5e6161; z-index:2;">Shooting</h1>
+                <h2 class="card_body" style="width:20vw; color:#5e6161; z-index:2;">Shot Form, Catch & Shoot, Mid-range, Three Pointers, Free Throws, Off-the-Dribble Shooting, Fadeaways, Bank Shots</h2>
+            </div>
+        </a>
+
+        <a id="a_link" class="col" href="/filter/Defense & Strategy" style="text-decoration:none;">
+            <div class="card no_left" style="padding-bottom:5.8vw; padding-top:4vw; background-image:url('/static/defense.png'); background-size: cover; background-position: center; background-repeat: no-repeat; border:0;z-index:0;">
+                <div class="white_box"></div>
+                <h1 class="card_title" style="color:#5e6161; z-index:2;">Defense & Strategy</h1>
+                <h2 class="card_body" style="width:20vw; color:#5e6161; z-index:2;">On-Ball Defense, Off-Ball Defense, Steals & Blocks, Rebounding, Zone Defense, Man-to-Man Defense</h2>
+            </div>
+        </a>
+    </div>
+
+    <div class="row" style="margin-top:5vw; margin-bottom:15vw;">
+        <a id="a_link" class="col" href="/filter/Game Situations & Tactics" style="text-decoration:none;">
+            <div class="card no_left" style="padding-bottom:7.64vw; padding-top:4vw; background-image:url('/static/tactics.png'); background-size: cover; background-position: center; background-repeat: no-repeat; border:0;z-index:0;">
+                <div class="white_box"></div>
+                <h1 class="card_title" style="color:#5e6161; z-index:2;">Game Situations & Tactics</h1>
+                <h2 class="card_body" style="width:20vw; color:#5e6161; z-index:2;">Pick & Roll, Combinations, Fast Breaks, Iso Plays, Post Moves, Clutch Situations</h2>
+            </div>
+        </a>
+
+        <a id="a_link" class="col" href="/filter/Health, Nutritioning & Recovery" style="text-decoration:none;">
+            <div class="card no_left" style="padding-bottom:4.1vw; padding-top:4vw; background-image:url('/static/nutritioning.png'); background-size: cover; background-position: center; background-repeat: no-repeat; border:0;z-index:0;">
+                <div class="white_box"></div>
+                <h1 class="card_title" style="color:#5e6161; z-index:2;">Health, Nutritioning & Recovery</h1>
+                <h2 class="card_body" style="width:20vw; color:#5e6161; z-index:2;">Injury Prevention, Recovery & Rehab, Flexibility & Mobility, Mental Toughness, Pre-Game Warmups, Lose Fat, Build Muscle, Healthy Diet</h2>
+            </div>
+        </a>
+
+        <a id="a_link" class="col" href="/filter/Equipment & Analysis" style="text-decoration:none;">
+            <div class="card no_left" style="padding-bottom:5.9vw; padding-top:4vw; background-image:url('/static/equipment.png'); background-size: cover; background-position: center; background-repeat: no-repeat; border:0;z-index:0;">
+                <div class="white_box"></div>
+                <h1 class="card_title" style="color:#5e6161; z-index:2;">Equipment & Analysis</h1>
+                <h2 class="card_body" style="width:20vw; color:#5e6161; z-index:2;">Basketball Shoes, Playing Outfits, Training Equipment, Streetball, Pro League Analysis, Player Comparisons</h2>
+            </div>
+        </a>
+    </div>
+
+
+</div>
+
+<img src="/static/blue_blob_upload.png" id="blue_blob_register">
+<img src="/static/orange_blob_upload.png" id="orange_blob_register">
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container-sm" style="display:flex; flex-direction:column; align-items:center;">
+    <div class="welcome_text">
+        <h1>Login</h1>
+        <h1 class="orange">Page</h1>
+    </div>
+
+    <div style="background-color:black; height:0.05vw; width:20vw; margin-top:3vw;"></div>
+    <h1 style="font-family:League Spartan; font-weight:100; font-size:1.5vw; color:#6b6e6e; width:30vw; text-align:center; margin-top:3vw;">
+        Create an account and improve on your journey to greatness
+    </h1>
+
+    {% for errors in form.errors.values() %}
+    <div style="display:flex; align-items:center; justify-content:center; background-color:#ffb1a6; height:5vw; width:30vw; border-radius:0.7vw; font-size:1.2vw;font-family:League Spartan; font-weight:300; margin-top:4vw; box-shadow:0px 4px 4px rgba(0, 0, 0, 0.25)">
+        {{ errors[0] }}
+    </div>
+    {% endfor %}
+
+    <form method="POST" class="upload_form" style="height:30vw !important; width:50vw !important;" enctype="multipart/form-data">
+        {{ form.hidden_tag() }}
+
+        {{ form.username( placeholder = form.username.label.text)}}
+        {{ form.password( placeholder = form.password.label.text )}}
+
+        {{ form.login(class="button", placeholder = form.login.label.text)}}
+    </form>
+
+
+</div>
+
+<img src="/static/blue_blob_upload.png" id="blue_blob_register">
+<img src="/static/orange_blob_upload.png" id="orange_blob_register">
+{% endblock %}
+
+
+

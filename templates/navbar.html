@@ -1,0 +1,21 @@
+<div class="nav">
+    <img src="/static/baseline.png">
+    <div class="links">
+        <a href="/">HOME</a>
+        <a href="/content">CONTENT</a>
+        <a href="/timeline">INFO</a>
+        <a href="/choose_upload">UPLOAD</a>
+        <a href="/reviews">REVIEWS</a>
+
+    </div>
+
+    <div class="account_options">
+        {% if current_user.is_authenticated %}
+        <a href="/logout">Log Out</a>
+        {% else %}
+        <a href="/login">Login</a>
+        <a href="/register">Sign up</a>
+        {% endif %}
+    </div>
+
+</div>

@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div id="content_box" style="background-image:url('/static/vintage_basketball.png'); background-size:100vw auto;">
+
+    <div class="white_box" style="opacity:0.7"></div>
+
+    <div class="two">
+        <div class="welcome_text">
+            <h1>INFO</h1>
+            <h1 style="color:#cc680c; margin-left:1vw;">PAGE</h1>
+        </div>
+
+        <div style="background-color:black; height:0.05vw; margin-left:32vw; margin-right:32vw; margin-top:3vw;"></div>
+        <h1 style="font-family:League Spartan; font-weight:600; font-size:1.5vw; color:#36454F; margin-right:27vw; margin-left:27vw; text-align:center; margin-top:3vw;">
+            Read about major events in basketball history
+        </h1>
+    </div>
+
+
+</div>
+<div style="display:flex; min-height:100vw; ">
+
+
+    <div class="timeline">
+        {% for event in events %}
+        <a href="/event/{{event.id}}" style="text-decoration:none;">
+            <div class="timeline-item {% if loop.index0 % 2 == 0 %}left{% else %}right{% endif %}">
+                <img src="/static/{{event.image_path}}" style="width:100%; height:auto; border-radius:1vw; margin-bottom:1vw;">
+                <h3>{{ event.year }} - {{ event.title }}</h3>
+                <p>{{ event.short_description }}</p>
+            </div>
+        </a>
+        {% endfor %}
+
+    </div>
+
+
+</div>
+
+{% endblock %}
+
+
+

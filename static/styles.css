@@ -1,0 +1,752 @@
+#jordan_box{
+display:flex;
+flex-direction:column;
+
+height:50.7vw;
+width:100vw;
+background-image:url("jordan.png");
+background-repeat: no-repeat;
+background-size:90vw 50vw;
+background-position:right;
+background-color:#070707;
+margin:0;
+position:relative;
+}
+
+#index_body{
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+margin:0;
+overflow-x:hidden;
+background-color:white;
+
+}
+
+#blue_box{
+position:absolute;
+top: 0;
+left: 0;
+z-index: 1;
+height:100%;
+width:100%;
+margin:0;
+background-color:#161D42;
+opacity:0.3
+
+
+}
+
+#jordan_text, #quote_by, #line{
+
+position:relative;
+z-index:2;
+color:white;
+font-family: 'League Spartan';
+font-weight:500;
+font-size:2vw;
+}
+
+#quote_by{
+font-weight:100;
+}
+
+#jordan_text{
+width:30vw;
+text-align:center;
+line-height:3vw;
+font-size:2.3vw; /* chasworeba */
+font-family:"Impact"; /* chasworeba */
+}
+
+#quote_text{
+margin:auto;
+margin-left:15vw;
+margin-top:15vw;
+display:flex;
+flex-direction:column;
+align-items:center;
+margin-top:20vw; /*arc es ar iyo*/
+}
+
+#quote_text h1, #quote_text h2{ /* amaze ar vici, shegidzlia moashoro */
+margin-bottom:0;
+}
+
+#scroll{
+position:relative;
+z-index:2;
+height:4vw;
+width:4vw;
+margin-bottom:2.5vw;
+margin-left:50vw;
+}
+
+
+
+
+
+
+
+
+
+
+
+.nav{
+display:flex;
+flex-direction:row;
+justify-content:space-around;
+width:100vw;
+height:7vw;
+background-color:white;
+
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+position:sticky;
+top:0;
+z-index:10;
+
+}
+
+.nav img{
+
+height:5vw;
+}
+
+
+#gray{
+background-color:#F5F5F5;
+width:100vw;
+height:70vw;
+}
+
+
+
+.links{
+display:flex;
+flex-direction:row;
+justify-content:space-between;
+align-items:center;
+width:25vw;
+
+}
+
+.links a{
+color:#36454F;
+font-family: 'League Spartan';
+font-weight:500;
+font-size:1vw;
+text-decoration:none;
+}
+
+.account_options{
+display:flex;
+flex-direction:row;
+justify-content:space-between;
+align-items:center;
+width:8vw;
+}
+
+.account_options a{
+font-size:1vw;
+color:#36454F;
+font-family:"Impact";
+font-size:1.3vw;
+text-decoration:none;
+}
+
+
+
+.profile_info{
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+margin-top:5vw;
+}
+
+
+.welcome_text{
+display:flex;
+flex-direction:row;
+align-items:center;
+justify-content:center;
+margin-top:5vw;
+}
+
+.welcome_text h1{
+font-family:"Montserrat";
+font-weight:bold;
+color:#36454F;
+font-size:3vw;
+margin-bottom:0;
+}
+
+.role{
+font-family:"Montserrat";
+color:#36454F;
+margin-bottom:0;
+font-weight:500 !important;
+font-size:2vw !important;
+margin-top:2vw;
+}
+
+.orange{
+color:#FB8B24 !important;
+margin-left:1vw;
+}
+
+#to{
+margin-left:1vw;
+}
+
+
+/*ragac stylebi htmlshi chavwere pirdapir*/
+
+.card_title{
+font-family:"League Spartan";
+font-weight:600;
+color:#7F8C8D;
+font-size:1.3vw;
+}
+
+.card_body{
+font-family:"League Spartan";
+font-weight:300;
+color:#7F8C8D;
+font-size:1.5vw;
+}
+
+.card{
+justify-content:center;
+align-items:center;
+padding-top:2vw;
+padding-bottom:2vw;
+margin-left:1vw;
+
+}
+
+.no_left{ /*sheidzleba id unda iyos */
+margin-left:0 !important;
+}
+.card h2{
+text-align:center;
+width:12vw;
+margin-top: 2vw;
+}
+
+.card_img{
+height:2vw;
+margin-bottom:2vw;
+}
+
+#blob_box{
+display:flex;
+flex-direction:row;
+justify-content:space-between;
+align-items:center;
+width:100vw;
+position:relative;
+margin-top:-10vw;
+z-index:2;
+
+}
+
+#blob_box img{
+height:29.32vw;
+}
+
+
+.about_me{
+position:relative;
+margin-top:-10vw;
+z-index:2;
+font-family:"Montserrat";
+color:#36454F;
+font-weight:bold;
+font-size:3vw;
+
+}
+
+
+.about_me_title{
+font-family:"Montserrat";
+font-size:2vw;
+color:#36454F;
+font-weight:500;
+}
+
+.about_me_text{
+font-family:"League Spartan";
+font-size:1.56vw;
+color:#7F8C8D;
+font-weight:300;
+text-align:justify;
+margin-top:2vw;
+}
+
+
+/**#image_div{
+width:100%;
+display:flex;
+justify-content:space-between;
+margin-top:5vw;
+margin-bottom:5vw;
+}**/
+
+.color_images{
+height:20vw;
+border-radius :100%;
+border:2px solid #36454F;
+width:auto;
+}
+
+.image_wrapper {
+position: relative;
+display: inline-block;
+padding:0.52vw;
+border-radius: 0.7vw;
+
+}
+
+.image_wrapper:hover{
+transform: scale(1.02);
+transition: transform 1s ease;
+box-shadow:0px 4px 4px rgba(0, 0, 0, 0.25)
+}
+
+
+.dotted_line{
+height: 0.05vw;
+width: 100%;
+background: repeating-linear-gradient(
+        90deg,
+        black 0vw, black 3vw,
+        transparent 3vw, transparent 5vw
+    );
+
+margin-bottom:5vw;
+}
+
+
+.player_names{
+font-family:"Montserrat";
+font-size:1.5vw;
+color:#36454F;
+font-weight:400;
+margin-top:1vw;
+}
+
+.center{
+display:flex;
+flex-direction:column;
+align-items:center;
+}
+
+
+
+
+
+/*uploadis  (da registeris nawilis) css iwyeba aqedan */
+
+.upload_register_body{
+
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+background-color:#F5F5F5;
+overflow-x:hidden;
+
+min-height:103.5vw;/*esec sheidzleba shesacvleli iyos*/
+
+}
+
+html{ /*sheidzleba shesacvleli iyos */
+min-height:103.5vw;
+}
+
+
+
+#blue_blob_upload, #blue_blob_register{
+height:29.375vw;
+position: absolute;
+top: 7vw;
+left: 0;
+z-index: 0;
+
+
+}
+
+.upload_form{
+background-color:white;
+border-radius:
+display:inline-block;
+margin:0 auto;
+width:60.94vw;
+height:38.99vw;
+margin-top:10.5vw; /* not sure about this */
+border-radius:1.56vw;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+box-shadow:0px 4px 4px rgba(0, 0, 0, 0.25);
+
+}
+
+input{
+margin-bottom:1vw !important;
+}
+
+input, button {
+text-align:center;
+background-color:#E3E3E3;
+width:36.87vw;
+height:3.8vw;
+border:0;
+border-radius:0.52vw !important;
+
+
+}
+
+.multiple_choice{
+margin-bottom:1vw;
+text-align:center;
+background-color:#E3E3E3;
+width:36.87vw;
+height:3.8vw;
+border:0;
+border-radius:0.52vw;
+font-family:"League Spartan";
+font-size:1.3vw;
+color:#7F8C8D;
+}
+
+
+.button{ /* after using forms, I needed to change the buttons, but if i changed the above button styles entirely, upload page would change as well, which i have not yet done.*/
+text-align:center;
+background-color:#B6D4ED ;
+color:#7F8C8D;
+margin-top:2vw !important;
+width:36.87vw;
+height:3.8vw;
+border:0;
+border-radius:0.52vw !important;
+font-family:"League Spartan" !important;
+font-size:1.3vw !important;
+}
+
+input::placeholder, button{
+font-family:"League Spartan" !important;
+font-size:1.3vw !important;
+}
+
+button{
+background-color:#B6D4ED ; /*override the color */
+color:#7F8C8D;
+margin-top:2vw !important;
+}
+
+
+.exception_form{
+width:18vw;
+}
+
+
+.style{
+padding-top:1vw;
+padding-left:12vw;
+color:#7F8C8D;
+font-family:"League Spartan" !important;
+font-size:1.1vw !important;
+}
+
+#orange_blob_upload{
+height:29vw;
+position:absolute;
+right:0;
+top:63vw;
+}
+
+
+#orange_blob_register{
+height:29vw;
+position:absolute;
+top:7vw;
+right:0;
+z-index:0;
+}
+
+
+.footer{
+display:flex;
+justify-content:space-around;
+align-items:center;
+margin-top:auto;
+width:100vw;
+height:11.5vw;
+background-color:#36454F;
+
+}
+
+
+.footer h1{
+font-size:1.56vw;
+color:#FB8B24;
+font-family:"Montserrat";
+font-weight:300;
+margin-bottom:0;
+}
+
+.bold{
+font-weight:700 !important;
+
+}
+
+
+
+/* contenis nawili */
+
+#a_link.col:hover .card{
+transform: scale(1.02);
+transition: transform 1s ease;
+box-shadow:0px 4px 4px rgba(0, 0, 0, 0.25)
+}
+
+
+
+/* view_content */
+#content_box{
+display:flex;
+flex-direction:column;
+height:40vw;
+width:100vw;
+background-image:url("woman_working.png");
+background-repeat: no-repeat;
+background-size:100vw 40vw;
+margin:0;
+margin-bottom:5vw;
+position:relative;
+
+}
+
+.white_box{
+position:absolute;
+top: 0;
+left: 0;
+z-index: 1;
+height:100%;
+width:100%;
+margin:0;
+background-color:#c8cbcf;
+opacity:0.8
+}
+
+.two{
+z-index:2;
+margin-top:5vw;
+}
+
+.view_post{
+width:29vw !important;
+}
+
+.inner_div{
+display:flex;
+flex-direction:row;
+margin-top:1.7vw;
+justify-content:space-between;
+width:28.5vw;
+
+}
+
+.inner_div h1{
+font-size:1.56vw;
+font-family:'League Spartan';
+color:#7F8C8D;
+
+}
+
+.inner_left_side_div{
+display:flex;
+flex-direction:row;
+}
+
+/*post ari aqedan */
+
+.like_circle{
+background-color:#d8dbe3;
+border-radius:40vw;
+width:15vw;
+height:3.5vw;
+display:flex;
+justify-content:space-around;
+align-items:center;
+}
+
+.description_box{
+display:flex;
+flex-direction:column;
+background-color:#d8dbe3;
+min-height:20vw;
+width:auto;
+border-radius:1vw;
+margin-top:4vw;
+padding-top:2vw;
+padding-left:2vw;
+padding-right:2vw;
+padding-bottom:2vw;
+}
+
+.description_box h1{
+font-family:"League Spartan";
+font-size:1.5vw;
+}
+
+
+.comment_form {
+  width: 87%;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  background: none;
+  font-size: 16px;
+  padding: 8px 0;
+  outline: none;
+  transition: border-color 0.3s ease-in-out;
+  text-align:start;
+  padding-left:1vw;
+}
+
+.comment_form:focus {
+  border-bottom: 2px solid black;
+}
+
+.comment_form::placeholder {
+  color: #888;
+}
+
+
+.comment_button {
+  background: #ccc; /* Default disabled state */
+  border: none;
+  padding: 8px 16px;
+  font-size: 14px;
+  color: white;
+  border-radius: 16px;
+  cursor: not-allowed;
+  width:10vw;
+}
+
+.comment_button.active {
+  background: #065fd4;
+  cursor: pointer;
+}
+
+/*read_content */
+.read_post{
+display:flex;
+flex-direction:column;
+min-height:21vw;
+width:30vw;
+border-radius:2vw;
+background-color:#dcdee3;
+}
+
+.read_post h2{
+font-size:1.4vw;
+font-family:'League Spartan';
+color:#7F8C8D;
+}
+
+.read_post h1{
+font-size:1.5vw;
+font-family:'League Spartan';
+color:#7F8C8D;
+}
+
+
+/* info page */
+
+.timeline {
+display:flex;
+flex-direction:column;
+position: relative;
+max-width: 45.5vw;
+margin: auto;
+margin-top:0vw;
+padding: 1.3vw 0;
+}
+
+.timeline::before {
+content: "";
+position: absolute;
+top: 0;
+bottom: 0;
+left: 50%;
+width: 0.36vw;
+background: #f57c00;
+transform: translateX(-50%);
+}
+
+
+.timeline-item {
+display:flex;
+flex-direction:column;
+position: relative;
+width: 50%;
+margin-bottom: 1.56vw;
+padding: 1vw;
+background: #36454F;
+border-radius: 0.416vw;
+box-shadow: 0 0.25vw 0.5vw rgba(0, 0, 0, 0.3);
+}
+
+.timeline-item:hover {
+transform: scale(1.05);
+transition: transform 1s ease;
+}
+
+.timeline-item.left {
+left: 0;
+padding-right:2vw;
+padding-left:2vw;
+}
+
+.timeline-item.right {
+left: 50%;
+padding-left:2vw;
+padding-right:2vw;
+}
+
+.timeline-item::after {
+content: "";
+position: absolute;
+top: 50%;
+width: 1vw;
+height: 1vw;
+background: #f57c00;
+border-radius: 50%;
+transform: translate(-50%, -50%);
+}
+
+.timeline-item.left::after {
+right: -0.52vw;
+}
+
+.timeline-item.right::after {
+left: 0.52vw;
+}
+
+.timeline-item h3 {
+font-size:1.7vw;
+margin: 0 0 0.52vw;
+color: #FB8B24;
+}
+
+.timeline-item p {
+font-size:1vw;
+margin: 0;
+color:white;
+}

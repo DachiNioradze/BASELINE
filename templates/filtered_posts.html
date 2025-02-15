@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div id="content_box">
+    <div class="white_box"></div>
+
+    <div class="two">
+        <div class="welcome_text">
+            <h1>Posts for</h1>
+            <h1 style="color:#cc680c; margin-left:1vw;">{{ goal }}</h1>
+        </div>
+
+        <div style="background-color:black; height:0.05vw; margin-left:32vw; margin-right:32vw; margin-top:3vw;"></div>
+        <h1 style="font-family:League Spartan; font-weight:600; font-size:1.5vw; color:#6b6e6e; margin-right:27vw; margin-left:27vw; text-align:center; margin-top:3vw;">
+            Explore different types of content offered to achieve your goals
+        </h1>
+    </div>
+
+
+</div>
+<div style="display:flex; min-height:60vw; width:95vw; ">
+
+
+    <div class="row" style="margin-top:5vw; justify-content:space-around; min-width:100%">
+
+        {% if posts %}
+
+        {% for post in posts %}
+
+        <div class="view_post col" style="display:flex; flex-direction:column; align-items:center; margin-bottom:5vw;">
+            <a href="/post/{{ post['id'] }}">
+                {% if post['image_path'].endswith(('.png', '.jpg', '.jpeg', '.gif')) %}
+                <img src="/static/{{post['image_path']}}"
+                     style="background-color:grey; height:17vw; width:29vw; border-radius:0.7vw">
+
+                {% elif post['image_path'].endswith(('.mp4', '.mov', '.avi', '.webm')) %}
+                <video controls style="background-color:grey; height:17vw; width:29vw; border-radius:0.7vw">
+                    <source src="/static/{{post['image_path']}}" type="video/mp4">
+                </video>
+
+                {% endif %}
+            </a>
+            {% if post.created_at != post.edited_at %}
+            <h1 style="font-weight:300; font-size:1vw; font-family:'League Spartan'; color:#7F8C8D; margin-top:1.5vw; margin-bottom:0; text-align:start; width:28.5vw;">Edited {{ post.edited_time_ago }}</h1>
+            {% endif %}
+
+
+            <div class="inner_div">
+
+                <div class="inner_left_side_div">
+                    <div>
+                        <img src="/static/{{post['author_profile']}}" style="background-color:grey; border-radius:100vw; height:3vw; width:3vw;">
+                    </div>
+
+                    <div style="margin-left:1.5vw;">
+                        <h1 style="font-weight:500; margin-bottom:0.2vw;">{{ post['title'] }}</h1>
+                        <h1 style="font-weight:200; margin-bottom:0.2vw;">{{ post['author'] }}</h1>
+                        <h1 style="font-weight:200">{{ post.time_ago }}</h1>
+                    </div>
+
+                </div>
+
+                {% if current_user.role == "admin" or current_user.username == post.author %}
+
+                <div>
+                    <a href="/delete_post/{{post['id']}}">
+                        <img src="/static/trash_icon.png" style="height:2vw; width:2vw;">
+                    </a>
+
+                    <a href="/edit_post/{{post['id']}}">
+                        <img src="/static/edit.png" style="height:1.5vw; width:1.5vw; margin-left:1vw">
+                    </a>
+                </div>
+
+                {% endif %}
+
+            </div>
+        </div>
+
+        {% endfor %}
+
+        {% else %}
+        <h1 style="font-family:League Spartan; font-weight:600; font-size:3vw; color:#6b6e6e; margin-left:30%">No posts found for this goal..</h1>
+        {% endif %}
+
+    </div>
+
+
+</div>
+
+{% endblock %}
+
+
+

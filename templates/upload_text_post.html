@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container-sm">
+    <div class="welcome_text">
+        <h1>Upload</h1>
+        <h1 class="orange">Page</h1>
+    </div>
+
+    <div style="background-color:black; height:0.05vw; margin-left:32vw; margin-right:32vw; margin-top:3vw;"></div>
+    <h1 style="font-family:League Spartan; font-weight:100; font-size:1.5vw; color:#6b6e6e; margin-right:27vw; margin-left:27vw; text-align:center; margin-top:3vw;">
+        Upload your own content seamlessly to share with others
+    </h1>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    {% for category, message in messages %}
+    <div class="alert alert-{{ category }} my-5" style="width:50%; left:25%">
+        {{ message }}
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+
+    <form method="POST" class="upload_form" enctype="multipart/form-data" style="height:30vw;">
+        {{ form.hidden_tag() }}
+
+        {{ form.title(placeholder = form.title.label.text) }}
+        {{ form.text(placeholder = form.text.label.text, style="height:7vw;") }}
+        {{ form.target(placeholder = form.target.label.text, class="multiple_choice") }}
+
+        {{ form.add(class="button", placeholder = form.add.label.text)}}
+    </form>
+
+
+</div>
+
+<img src="/static/blue_blob_upload.png" id="blue_blob_upload">
+<img src="/static/orange_blob_upload.png" id="orange_blob_upload">
+{% endblock %}

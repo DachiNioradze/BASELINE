@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container-sm" style="min-height:100vw;">
+
+    <div class="read_post" style="width:100%; background:none; margin-top:5vw; margin-bottom:7vw; height:auto">
+
+        <div style="display:flex; flex-direction:row width:100%; align-items:center; justify-content:space-between; margin-bottom:4vw">
+            <img src="/static/{{event.image_path}}" style="width:50%; height:auto; border-radius:1vw; margin-bottom:1vw;">
+            <div style="display:flex; flex-direction:column; width:45%; align-items:center;">
+                <h1 style="font-size:4vw; text-align:center; width:100%">{{ event.year }} - {{ event.title }}</h1>
+                <img src="/static/black_scroll.png" style="width:10%; height:auto; margin-top:3vw;">
+            </div>
+
+        </div>
+
+        {% if event.title_one != "" %}
+        <h1 style="margin-top:2vw; margin-bottom:2vw; font-weight:600; text-align:justify; font-size:2.5vw; color:#36454F;">{{ event.title_one }}</h1>
+        {% endif %}
+        <h1 style="margin-bottom:3vw; font-weight:400; text-align:justify;">{{ event.text_one }}</h1>
+        {% if event.title_two != "" %}
+        <h1 style="margin-top:2vw; margin-bottom:2vw; font-weight:600; text-align:justify; font-size:2.5vw; color:#36454F;">{{ event.title_two }}</h1>
+        {% endif %}
+        <h1 style="margin-bottom:3vw; font-weight:400; text-align:justify;">{{ event.text_two }}</h1>
+        {% if event.title_three != "" %}
+        <h1 style="margin-top:2vw; margin-bottom:2vw; font-weight:600; text-align:justify; font-size:2.5vw; color:#36454F;">{{ event.title_three }}</h1>
+        {% endif %}
+        <h1 style="margin-bottom:3vw; font-weight:400; text-align:justify;">{{ event.text_three }}</h1>
+        {% if event.title_four != "" %}
+        <h1 style="margin-top:2vw; margin-bottom:2vw; font-weight:600; text-align:justify; font-size:2.5vw; color:#36454F;">{{ event.title_four }}</h1>
+        {% endif %}
+        <h1 style="margin-bottom:3vw; font-weight:400; text-align:justify;">{{ event.text_four }}</h1>
+        <h1 style="color:#FB8B24">Read more at:</h1>
+        <h1>{{event.read_more}}</h1>
+        <a href="/timeline" style="text-decoration:none; font-size:1.3vw; margin-top:3vw; color:#FB8B24;">Back to Timeline</a>
+
+    </div>
+
+
+</div>
+
+{% endblock %}
+
+
+

@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div id="content_box">
+    <div class="white_box"></div>
+
+    <div class="two">
+        <div class="welcome_text">
+            <h1>Text Posts for</h1>
+            <h1 style="color:#cc680c; margin-left:1vw;">{{ about }}</h1>
+        </div>
+
+        <div style="background-color:black; height:0.05vw; margin-left:32vw; margin-right:32vw; margin-top:3vw;"></div>
+        <h1 style="font-family:League Spartan; font-weight:600; font-size:1.5vw; color:#6b6e6e; margin-right:27vw; margin-left:27vw; text-align:center; margin-top:3vw;">
+            Explore different types of content offered to achieve your goals
+        </h1>
+    </div>
+
+
+</div>
+<div style="display:flex; min-height:60vw; width:95%">
+
+
+    <div class="row" style="margin-top:5vw; justify-content:space-around; min-width:95%;">
+
+        {% if read_posts %}
+
+        {% for read_post in read_posts %}
+
+        <div class="col" style="display:flex; flex-direction:column; align-items:center; width:29vw; margin-bottom:5vw;">
+
+
+            <div class="read_post">
+
+                <div style="display:flex; flex-direction:row; align-items:center; padding-top:1vw; padding-left:1.5vw;">
+                    <img src="/static/{{read_post['author_profile']}}"
+                         style="border-radius:100vw; height:3vw; width:3vw;">
+
+                    <div style="display:flex; flex-direction:column;margin-left:1.5vw;">
+                        <h2 style="margin-bottom:0;">{{read_post['author_first_name']}}
+                            {{read_post['author_last_name']}}</h2>
+                        <h2 style="margin-bottom:0;">@{{read_post['author_username']}}</h2>
+                    </div>
+
+                    {% if current_user.role == "admin" or current_user.username == read_post.author_username %}
+
+                    <div style="margin-left:8vw;">
+                        <a href="/delete_read_post/{{read_post['id']}}">
+                            <img src="/static/trash_icon.png" style="height:2vw; width:2vw;">
+                        </a>
+
+                        <a href="/edit_read_post/{{read_post['id']}}">
+                            <img src="/static/edit.png" style="height:1.5vw; width:1.5vw; margin-left:1vw">
+                        </a>
+                    </div>
+
+                    {% endif %}
+                </div>
+
+
+                <h1 style="margin-top:2vw;padding-left:1.5vw;">{{read_post['title']}}</h1>
+
+                <div style="display:flex; flex-direction:row; padding-left:1.5vw; padding-right:1.5vw; width:100%; justify-content:space-between; margin-top:6.8vw; align-items:flex-end; ">
+                    <div style="display:flex; flex-direction:column;">
+                        <h1 style="font-size:1.2vw">{{ read_post.formatted_time }}</h1>
+                        {% if read_post.created_at != read_post.edited_at %}
+                        <h1 style="font-size:1.2vw">Edited: {{ read_post.formatted_edited_at }}</h1>
+                        {% endif %}
+                    </div>
+
+                    <a href="/read_post/{{ read_post['id'] }}" style="text-decoration:none;">
+
+                        <h1 style="font-size:1.2vw">read more...</h1>
+                    </a>
+                </div>
+
+
+                <div style="width:100%; height:0.05vw;background-color:#BDBDBD; margin-top:0.7vw;"></div>
+                <div style="display:flex; flex-direction:row; width:14vw; justify-content:space-between; padding-left:1.5vw; padding-top:1vw;">
+                    {% if read_post.like_count == 1 %}
+                    <h1 style="font-size:1.3vw">{{ read_post.like_count }} like</h1>
+                    {% else %}
+                    <h1 style="font-size:1.3vw">{{ read_post.like_count }} likes</h1>
+                    {% endif %}
+
+                    {% if read_post.comment_count == 1 %}
+                    <h1 style="font-size:1.3vw;">{{ read_post.comment_count}} comment</h1>
+                    {% else %}
+                    <h1 style="font-size:1.3vw;">{{ read_post.comment_count}} comments</h1>
+                    {% endif %}
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+        {% endfor %}
+
+        {% else %}
+        <h1 style="font-family:League Spartan; font-weight:600; font-size:3vw; color:#6b6e6e; margin-left:30%">No posts found about this topic..</h1>
+        {% endif %}
+
+    </div>
+
+
+</div>
+
+{% endblock %}
+
+
+

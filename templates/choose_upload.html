@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container-sm">
+    <div class="welcome_text">
+        <h1>Choose Upload Content</h1>
+        <h1 class="orange">Page</h1>
+    </div>
+
+    <div style="background-color:black; height:0.05vw; margin-left:32vw; margin-right:32vw; margin-top:3vw;"></div>
+    <h1 style="font-family:League Spartan; font-weight:100; font-size:1.5vw; color:#6b6e6e; margin-right:27vw; margin-left:27vw; text-align:center; margin-top:3vw;">
+        Choose which type of content you wish to upload
+    </h1>
+
+
+    <div class="row" style="margin-top:17vw;">
+        <a id="a_link" class="col" href="/upload" style="text-decoration:none;">
+            <div class="card no_left" style="padding-bottom:7vw; background-color:#F0B571">
+                <img src="/static/eye.png" class="card_img">
+                <h1 class="card_title">VISUAL POSTS (PICTURES/VIDEOS)</h1>
+                <h2 class="card_body" style="width:20vw;">upload content with images/videos and description to help others on their journey</h2>
+            </div>
+        </a>
+
+
+        <a id="a_link" class="col" href="/upload_text_post" style="text-decoration:none;">
+            <div class="col card" style="padding-bottom:7vw; background-color:#36454F">
+                <img src="/static/read.png" class="card_img">
+                <h1 class="card_title">TEXT POSTS</h1>
+                <h2 class="card_body" style="width:20vw;">upload text type of content to share advice /experiences/information</h2>
+            </div>
+        </a>
+
+    </div>
+
+
+</div>
+
+<img src="/static/blue_blob_upload.png" id="blue_blob_register">
+<img src="/static/orange_blob_upload.png" id="orange_blob_register">
+{% endblock %}
+
+

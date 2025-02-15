@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div id="content_box">
+    <div class="white_box"></div>
+
+    <div class="two">
+        <div class="welcome_text">
+            <h1>Read</h1>
+            <h1 style="color:#cc680c; margin-left:1vw;">Reviews</h1>
+        </div>
+
+        <div style="background-color:black; height:0.05vw; margin-left:32vw; margin-right:32vw; margin-top:3vw;"></div>
+        <h1 style="font-family:League Spartan; font-weight:600; font-size:1.5vw; color:#6b6e6e; margin-right:27vw; margin-left:27vw; text-align:center; margin-top:3vw;">
+           View other people's reviews to learn website's pros and cons
+        </h1>
+
+        <h1 style="font-family:League Spartan; font-weight:600; font-size:1.5vw; color:#6b6e6e; margin-right:27vw; margin-left:27vw; text-align:center; margin-top:3vw;">
+           Leave a review from the footer
+        </h1>
+    </div>
+
+
+</div>
+<div style="display:flex; min-height:60vw; width:95%">
+
+
+    <div class="row" style="margin-top:5vw; justify-content:space-around; min-width:100%">
+
+        {% for review in reviews %}
+
+        <div class="col" style="display:flex; flex-direction:column; align-items:center; width:32vw; margin-bottom:5vw; ">
+
+
+            <div class="read_post" style="background-color:#e4eaed">
+
+                <div style="display:flex; flex-direction:row; align-items:center; padding-top:1vw; padding-left:1.5vw;">
+                    <img src="/static/{{review['author_profile']}}"
+                         style="border-radius:100vw; height:3vw; width:3vw;">
+
+                    <div style="display:flex; flex-direction:column;margin-left:1.5vw;">
+                        <h2 style="margin-bottom:0;">{{review['author_first_name']}}
+                            {{review['author_last_name']}}</h2>
+                        <h2 style="margin-bottom:0;">@{{review['author_username']}}</h2>
+                    </div>
+
+                    {% if current_user.role == "admin" or current_user.username == read_post.author_username %}
+
+                    <div style="margin-left:8vw;">
+                        <a href="/delete_review/{{review['id']}}">
+                            <img src="/static/trash_icon.png" style="height:2vw; width:2vw;">
+                        </a>
+
+                        <a href="/edit_review/{{review['id']}}">
+                            <img src="/static/edit.png" style="height:1.5vw; width:1.5vw; margin-left:1vw">
+                        </a>
+                    </div>
+
+                    {% endif %}
+                </div>
+
+
+                <h1 style="margin-top:2vw;padding-left:1.5vw; padding-right:1.5vw; word-wrap: break-word; overflow-wrap: break-word; flex-grow: 1">{{review['review']}}</h1>
+
+                <div style="display:flex; flex-direction:column; padding-left:1.5vw;">
+                    <h1 style="font-size:1.2vw; margin-top:5vw;">{{ review.formatted_time }}</h1>
+
+                    {% if review.formatted_time != review.formatted_edited_at %}
+                    <h1 style="font-size:1.2vw">Edited: {{ review['formatted_edited_at'] }}</h1>
+                    {% endif %}
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+        {% endfor %}
+    </div>
+
+
+</div>
+
+{% endblock %}
+
+
+

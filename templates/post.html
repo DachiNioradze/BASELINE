@@ -1,0 +1,183 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container-sm" style="min-height:150vw;">
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    {% for category, message in messages %}
+    <div class="alert alert-{{ category }} my-3">
+        {{ message }}
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+
+
+    <div style="display:flex; flex-direction:row; margin-top:2vw; justify-content:space-between; ">
+        <div style="display:flex; flex-direction:column;">
+
+            <div style="width:54.38vw; height:auto;">
+                {% if post['image_path'].endswith(('.png', '.jpg', '.jpeg', '.gif')) %}
+                <img src="/static/{{post['image_path']}}" style="background-color:grey; height:31.96vw; width:54.38vw; border-radius:0.7vw;">
+                {% elif post['image_path'].endswith(('.mp4', '.mov', '.avi', '.webm')) %}
+                <video controls style="background-color:grey; height:31.96vw; width:54.38vw; border-radius:0.7vw;">
+                    <source src="/static/{{post['image_path']}}" type="video/mp4">
+                </video>
+                {% endif %}
+
+                <h1 style="font-weight:600; font-size:2vw; letter-spacing:0.02em; font-family:'League Spartan'; color:#7F8C8D; margin-top:1vw;">{{ post['title'] }}</h1>
+
+                <div class="inner_div" style="width:54.38vw; align-items:center; margin-top:1vw !important;">
+                    <div style="display:flex; flex-direction:row; align-items:center;">
+                        <div>
+                            <img src="/static/{{post['author_profile']}}"
+                                 style=" border-radius:100vw; height:3vw; width:3vw;">
+                        </div>
+
+                        <div style="margin-left:1.5vw;">
+                            <h1 style="font-weight:400; margin-bottom:0;">{{ post['author'] }}</h1>
+                            <div style="display:flex; flex-direction:row; justify-content:center;">
+                                <h1 style="font-weight:200; margin-bottom:0;">{{ time_ago }}</h1>
+                                {% if post['created_at'] != post['edited_at'] %}
+                                <h1 style="font-weight:200; margin-left:1.5vw;">Edited {{ edited_time_ago }}</h1>
+                                {% endif %}
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <div class="like_circle">
+                        <form action="/like/{{ post.id }}" method="POST">
+                            <button type="submit" style="width:2vw;background:none; margin:0 !important;padding:0;max-height:3.5vw;"><img src="/static/like.png" style="width 1.8vw; height:1.8vw;"></button>
+                        </form>
+                        <h1 style="margin-bottom:0;">{{ like_count }}</h1>
+                        <div style="width:0.07vw; height:2.3vw; background-color:black"></div>
+                        <h1 style="margin-bottom:0">{{ dislike_count
+                            }}</h1>
+                        <form action="/dislike/{{ post.id }}" method="POST">
+                            <button type="submit" style="width:2vw;background:none;margin:0 !important;padding:0;max-height:3.5vw"><img src="/static/dislike.png" style="width 1.8vw; height:1.8vw;"></button>
+                        </form>
+
+
+
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+
+
+        <div style="display:flex; flex-direction:column; height:17.5vw; justify-content:space-between; margin-top:7.5vw;">
+            <h1 style="font-size:1.82vw; color:#656767; font-family:'League Spartan'; width:20vw;">Out Of {{rating_count}} People,
+                {{helpful_percentage}}% Found This Helpful</h1>
+            <h1 style="font-size:1.56vw; color:#656767; font-family:'League Spartan';font-weight:300;">Was this
+                helpful?</h1>
+
+            <form method="POST" enctype="multipart/form-data">
+                {{ rating_form.hidden_tag() }}
+
+                {{ rating_form.rating(placeholder = rating_form.rating.label.text, class="comment_form", style="width:63%" ) }}
+
+                {{ rating_form.submit(class="comment_button", placeholder = rating_form.submit.label.text, style="width:7vw")}}
+            </form>
+
+            <h1 style="font-size:1.56vw; color:#656767; font-family:'League Spartan';font-weight:300;">Avg Rating: {{avg_rating}}</h1>
+        </div>
+
+
+    </div>
+
+    <div class="description_box">
+        <h1 style="color:#4c4c4d;">#{{ post['target']}}</h1>
+        {% for paragraph in formatted_paragraphs %}
+        <h1 style="color:#4c4c4d; text-align:justify; font-weight:300;">{{ paragraph }}</h1>
+        {% endfor %}
+    </div>
+
+
+    <div style="flex-direction:column;margin-bottom:1vw; margin-top:4vw;" class="inner_div">
+
+        <h1 style="color:#6d6d6e">{{ comment_count }} Comments</h1>
+
+        <h1>Commenting as</h1>
+        <div style="display:flex;flex-direction:row; align-items:center;justify-content:space-between; width:16vw; margin-top:1vw;">
+
+            <img src="/static/{{current_user.path}}"
+                 style=" border-radius:100vw; height:3vw; width:3vw">
+
+            <div>
+                <h1 style="margin-bottom:0;">{{current_user.first_name}} {{current_user.last_name}}</h1>
+                <h1 style="margin-bottom:0;">@{{current_user.username}}</h1>
+            </div>
+
+            <a href="/logout">
+                <img src="/static/edit.png" style="height:1.5vw; width:1.5vw; margin:0 !important;">
+            </a>
+
+        </div>
+
+
+    </div>
+
+
+
+    <form method="POST" enctype="multipart/form-data" style="margin-bottom:1.7vw;">
+        {{ comment_form.hidden_tag() }}
+
+        {{ comment_form.comment(placeholder = comment_form.comment.label.text, class="comment_form") }}
+
+        {{ comment_form.submit(class="comment_button", placeholder = comment_form.submit.label.text)}}
+    </form>
+
+    {% for comment in comments %}
+
+    <div style="align-items:center; width:100%; margin-top:0 !important; margin-bottom:1.7vw;" class="inner_div">
+        <div style="display:flex; flex-direction:row; align-items:center;">
+            <div>
+                <img src="/static/{{comment['comment_author_profile']}}"
+                     style=" border-radius:100vw; height:3vw; width:3vw;">
+            </div>
+
+            <div style="margin-left:1.5vw;">
+                <div style="display:flex; flex-direction:row; align-items:center; justify-content:center;">
+                    <h1 style="font-weight:400; margin-bottom:0;">@{{ comment['author']}} </h1>
+                    <h1 style="font-weight:300; font-size:1.2vw; margin-bottom:0; margin-left:1.5vw;">{{comment_time_ago}}</h1>
+
+                    {% if comment['created_at'] != comment['edited_at'] %}
+                    <h1 style="font-weight:300; font-size:1.2vw; margin-bottom:0; margin-left:1.5vw;">Edited {{comment_edited_time_ago}}</h1>
+                    {% endif %}
+                </div>
+
+                <h1 style="font-weight:200; margin-bottom:0;">{{ comment['comment']}}</h1>
+            </div>
+
+        </div>
+
+        {% if current_user.role == "admin" or current_user.username == comment.author %}
+
+        <div>
+            <a href="/delete_comment/{{comment['id']}}">
+                <img src="/static/trash_icon.png" style="height:2vw; width:2vw;">
+            </a>
+
+            <a href="/edit_comment/{{comment['id']}}">
+                <img src="/static/edit.png" style="height:1.5vw; width:1.5vw; margin-left:1vw">
+            </a>
+        </div>
+
+        {% endif %}
+    </div>
+
+    {% endfor %}
+
+
+</div>
+
+{% endblock %}
+
+
+

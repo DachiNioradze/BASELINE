@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container-sm">
+    <div class="welcome_text">
+        <h1>Edit Post</h1>
+        <h1 class="orange">Page</h1>
+    </div>
+
+    <div style="background-color:black; height:0.05vw; margin-left:32vw; margin-right:32vw; margin-top:3vw;"></div>
+    <h1 style="font-family:League Spartan; font-weight:100; font-size:1.5vw; color:#6b6e6e; margin-right:27vw; margin-left:27vw; text-align:center; margin-top:3vw;">
+        Edit your own content to correct any inaccuracies
+    </h1>
+
+    <form method="POST" class="upload_form" enctype="multipart/form-data">
+        {{ form.hidden_tag() }}
+
+        {{ form.image(placeholder = form.image.label.text, class="style") }}
+
+        {{ form.title(placeholder = form.title.label.text) }}
+        {{ form.description(placeholder = form.description.label.text) }}
+        {{ form.target(placeholder = form.target.label.text, class="multiple_choice") }}
+
+        {{ form.edit(class="button", placeholder = form.edit.label.text)}}
+    </form>
+
+
+</div>
+
+<img src="/static/blue_blob_upload.png" id="blue_blob_upload">
+<img src="/static/orange_blob_upload.png" id="orange_blob_upload">
+{% endblock %}

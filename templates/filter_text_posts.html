@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container-sm">
+    <div class="welcome_text">
+        <h1>Filter text posts</h1>
+        <h1 class="orange">Page</h1>
+    </div>
+
+    <div style="background-color:black; height:0.05vw; margin-left:32vw; margin-right:32vw; margin-top:3vw;"></div>
+    <h1 style="font-family:League Spartan; font-weight:100; font-size:1.5vw; color:#6b6e6e; margin-right:27vw; margin-left:27vw; text-align:center; margin-top:3vw;">
+        Feel free to filter content based on your needs
+    </h1>
+    <div style="display:flex; flex-direction:row; align-items:center; justify-content:center; margin-top:3vw;">
+        <a href="/read_content" style="text-decoration:none;">
+            <h1 style="font-family:League Spartan; font-weight:500; font-size:1.5vw; color:#6b6e6e; text-align:center;">
+                Click here to view everything</h1>
+        </a>
+
+        <h1 style="font-family:League Spartan; font-weight:300; font-size:1.5vw; color:#6b6e6e; text-align:center; margin-left:1vw; margin-right:1vw;">OR</h1>
+
+        <a href="/filter_text_posts/Other" style="text-decoration:none; ">
+            <h1 style="font-family:League Spartan; font-weight:500; font-size:1.5vw; color:#6b6e6e; text-align:center;">
+                Click here to view "Other"</h1>
+        </a>
+    </div>
+
+
+
+
+    <div class="row" style="margin-top:17vw;">
+        <a id="a_link" class="col" href="/filter_text_posts/Player Mindset & Motivation" style="text-decoration:none;">
+            <div class="card no_left" style="padding-bottom:5vw; padding-top:4vw; background-image:url('/static/mindset.png'); background-size: cover; background-position: center; background-repeat: no-repeat; border:0;z-index:0;">
+                <div class="white_box"></div>
+                <h1 class="card_title"  style="color:#5e6161; z-index:2;">Player Mindset & Motivation</h1>
+                <h2 class="card_body" style="width:20vw; color:#5e6161; z-index:2;">Dealing with Failure – How players handled losses, setbacks, or tough games.
+Building Confidence – Stories of overcoming self-doubt and improving mental toughness.
+Staying Motivated – Advice on maintaining motivation through struggles or plateaus.</h2>
+            </div>
+        </a>
+
+        <a id="a_link" class="col" href="/filter_text_posts/Training & Improvement" style="text-decoration:none;">
+            <div class="card no_left" style="padding-bottom:3.2vw; padding-top:4vw; background-image:url('/static/training.png'); background-size: cover; background-position: center; background-repeat: no-repeat; border:0;z-index:0;">
+                <div class="white_box"></div>
+                <h1 class="card_title" style="color:#5e6161; z-index:2;">Training & Improvement</h1>
+                <h2 class="card_body" style="width:20vw; color:#5e6161; z-index:2;">Training Routines – Personal experiences with specific drills, workouts, or training plans.
+Improving Weaknesses – How players overcame weaknesses (e.g., weak hand, poor defense, stamina).
+Consistency & Discipline – Tips on staying consistent with training and building good habits.</h2>
+            </div>
+        </a>
+
+        <a id="a_link" class="col" href="/filter_text_posts/Game Experience & Situational Awareness" style="text-decoration:none;">
+            <div class="card no_left" style="padding-bottom:3.2vw; padding-top:4vw; background-image:url('/static/game.png'); background-size: cover; background-position: center; background-repeat: no-repeat; border:0;z-index:0;">
+                <div class="white_box"></div>
+                <h1 class="card_title" style="color:#5e6161; z-index:2;">Game Experience & Situational Awareness</h1>
+                <h2 class="card_body" style="width:20vw; color:#5e6161; z-index:2;">High-Pressure Moments – Stories of clutch performances or handling nerves in big games.
+Adapting to Different Opponents – How players adjusted to different playstyles and defenders.
+Learning from Mistakes – Key lessons learned from in-game errors and how they improved.</h2>
+            </div>
+        </a>
+    </div>
+
+    <div class="row" style="margin-top:5vw; margin-bottom:15vw;">
+        <a id="a_link" class="col" href="/filter_text_posts/Coaching & Team Dynamics" style="text-decoration:none;">
+            <div class="card no_left" style="padding-bottom:3.2vw; padding-top:4vw; background-image:url('/static/tactics.png'); background-size: cover; background-position: center; background-repeat: no-repeat; border:0;z-index:0;">
+                <div class="white_box"></div>
+                <h1 class="card_title" style="color:#5e6161; z-index:2;">Coaching & Team Dynamics</h1>
+                <h2 class="card_body" style="width:20vw; color:#5e6161; z-index:2;">Working with Coaches – Experiences with different coaching styles and how to adapt.
+Team Chemistry – How players built good relationships with teammates and improved communication.
+Leadership & Team Roles – Stories about being a leader, adjusting to a role, or helping teammates grow.</h2>
+            </div>
+        </a>
+
+        <a id="a_link" class="col" href="/filter_text_posts/Nutritioning, Recovery & Physical Health" style="text-decoration:none;">
+            <div class="card no_left" style="padding-bottom:5.1vw; padding-top:4vw; background-image:url('/static/recovery.png'); background-size: cover; background-position: center; background-repeat: no-repeat; border:0;z-index:0;">
+                <div class="white_box"></div>
+                <h1 class="card_title" style="color:#5e6161; z-index:2;">Nutritioning, Recovery & Physical Health</h1>
+                <h2 class="card_body" style="width:20vw; color:#5e6161; z-index:2;">Injury Recovery – Stories about bouncing back from injuries, including rehab experiences.
+Managing Fatigue – How players balanced training, rest, and school/life.
+Nutrition & Health – Personal experiences with diet, hydration, or fitness changes.
+6. Career & Growth Advice</h2>
+            </div>
+        </a>
+
+        <a id="a_link" class="col" href="/filter_text_posts/Career & Growth Advice" style="text-decoration:none;">
+            <div class="card no_left" style="padding-bottom:5vw; padding-top:4vw; background-image:url('/static/advice.png'); background-size: cover; background-position: center; background-repeat: no-repeat; border:0;z-index:0;">
+                <div class="white_box"></div>
+                <h1 class="card_title" style="color:#5e6161; z-index:2;">Career & Growth Advice</h1>
+                <h2 class="card_body" style="width:20vw; color:#5e6161; z-index:2;">Starting Late vs. Early Training – How different starting ages affected development.
+Balancing Basketball & Life – Managing school, work, or personal life with basketball.
+Making the Next Step – Transitioning from casual play to competitive teams, or from high school to college/pro.</h2>
+            </div>
+        </a>
+    </div>
+
+
+</div>
+
+<img src="/static/blue_blob_upload.png" id="blue_blob_register">
+<img src="/static/orange_blob_upload.png" id="orange_blob_register">
+{% endblock %}

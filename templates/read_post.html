@@ -1,0 +1,143 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container-sm" style="min-height:130vw;">
+
+    <div class="read_post" style="width:100%; background:none; margin-top:5vw; margin-bottom:7vw; height:auto">
+
+        <div style="display:flex; flex-direction:row; align-items:center;">
+            <img src="/static/{{read_post['author_profile']}}"
+                 style="border-radius:100vw; height:3vw; width:3vw;">
+
+            <div style="display:flex; flex-direction:column;margin-left:1.5vw;">
+                <h2 style="margin-bottom:0;">{{read_post['author_first_name']}} {{read_post['author_last_name']}}</h2>
+                <h2 style="margin-bottom:0;">@{{read_post['author_username']}}</h2>
+            </div>
+        </div>
+
+
+        <h1 style="margin-top:3vw; font-size:1.7vw;">{{read_post['title']}}</h1>
+        <h1 style="margin-top:0.5vw; font-weight:400; margin-bottom:2vw; ">#{{read_post['target']}}</h1>
+        {% for paragraph in formatted_paragraphs %}
+        <h1 style="margin-bottom: 1.5vw; font-weight:400; text-align:justify">{{ paragraph }}</h1>
+        {% endfor %}
+
+
+        <div style="width:100%; display:flex; flex-direction:row; justify-content:space-between; align-items:center; margin-top:7vw;">
+            <div style="display:flex; flex-direction:row; justify-content:space-between; width:45%">
+                <h1 style="font-size:1.5vw">{{ formatted_time }}</h1>
+                {% if read_post['created_at'] != read_post['edited_at'] %}
+                <h1 style="font-size:1.5vw">Edited:{{ formatted_edited_at }}</h1>
+                {% endif %}
+            </div>
+
+
+            <div class="like_circle">
+                <form action="/like_read_post/{{ read_post.id }}" method="POST">
+                    <button type="submit"
+                            style="width:2vw;background:none; margin:0 !important;padding:0;max-height:3.5vw;"><img
+                            src="/static/like.png" style="width 1.8vw; height:1.8vw;"></button>
+                </form>
+                <h1 style="margin-bottom:0;">{{ like_count }}</h1>
+                <div style="width:0.07vw; height:2.3vw; background-color:black"></div>
+                <h1 style="margin-bottom:0">{{ dislike_count
+                    }}</h1>
+                <form action="/dislike_read_post/{{ read_post.id }}" method="POST">
+                    <button type="submit"
+                            style="width:2vw;background:none;margin:0 !important;padding:0;max-height:3.5vw">
+                        <img src="/static/dislike.png" style="width 1.8vw; height:1.8vw;"></button>
+                </form>
+
+
+            </div>
+        </div>
+
+
+    </div>
+
+
+    <div style="flex-direction:column;margin-bottom:1vw;" class="inner_div">
+        {% if comment_count == 1 %}
+        <h1 style="color:#6d6d6e">{{ comment_count }} Comment</h1>
+        {% else %}
+        <h1 style="color:#6d6d6e">{{ comment_count }} Comments</h1>
+        {% endif %}
+
+        <h1>Commenting as</h1>
+        <div style="display:flex;flex-direction:row; align-items:center;justify-content:space-between; width:16vw; margin-top:1vw;">
+
+            <img src="/static/{{current_user.path}}"
+                 style=" border-radius:100vw; height:3vw; width:3vw">
+
+            <div>
+                <h1 style="margin-bottom:0;">{{current_user.first_name}} {{current_user.last_name}}</h1>
+                <h1 style="margin-bottom:0;">@{{current_user.username}}</h1>
+            </div>
+
+            <a href="/logout">
+                <img src="/static/edit.png" style="height:1.5vw; width:1.5vw; margin:0 !important;">
+            </a>
+
+        </div>
+
+
+    </div>
+
+
+    <form method="POST" enctype="multipart/form-data" style="margin-bottom:1.7vw;">
+        {{ comment_form.hidden_tag() }}
+
+        {{ comment_form.comment(placeholder = comment_form.comment.label.text, class="comment_form") }}
+
+        {{ comment_form.submit(class="comment_button", placeholder = comment_form.submit.label.text)}}
+    </form>
+
+    {% for comment in comments %}
+
+    <div style="align-items:center; width:100%; margin-top:0 !important; margin-bottom:1.7vw;" class="inner_div">
+        <div style="display:flex; flex-direction:row; align-items:center;">
+            <div>
+                <img src="/static/{{comment['read_comment_author_profile']}}"
+                     style=" border-radius:100vw; height:3vw; width:3vw;">
+            </div>
+
+            <div style="margin-left:1.5vw;">
+                <div style="display:flex; flex-direction:row; align-items:center; justify-content:center;">
+                    <h1 style="font-weight:400; margin-bottom:0;">@{{ comment['read_author'] }}</h1>
+                    <h1 style="font-weight:300; font-size:1.2vw; margin-bottom:0; margin-left:1.5vw;">{{ read_comment_time_ago }}</h1>
+
+                    {% if comment['created_at'] != comment['edited_at'] %}
+                    <h1 style="font-weight:300; font-size:1.2vw; margin-bottom:0; margin-left:1.5vw;">Edited {{ read_comment_edited_time_ago }}</h1>
+                    {% endif %}
+
+                </div>
+
+                <h1 style="font-weight:200; margin-bottom:0;">{{ comment['read_comment']}}</h1>
+            </div>
+
+        </div>
+
+        {% if current_user.role == "admin" or current_user.username == comment.author %}
+
+        <div>
+            <a href="/delete_read_comment/{{comment['id']}}">
+                <img src="/static/trash_icon.png" style="height:2vw; width:2vw;">
+            </a>
+
+            <a href="/edit_read_comment/{{comment['id']}}">
+                <img src="/static/edit.png" style="height:1.5vw; width:1.5vw; margin-left:1vw">
+            </a>
+        </div>
+
+        {% endif %}
+    </div>
+
+    {% endfor %}
+
+
+</div>
+
+{% endblock %}
+
+
+
